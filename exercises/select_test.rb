@@ -15,9 +15,7 @@ class SelectTest < Minitest::Test
   def test_pick_odd_numbers
     numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     odds = numbers.select do |number|
-      if number.odd? == true
-        return number
-      end
+      number.odd?
     end
     assert_equal [1, 3, 5, 7, 9], odds
   end
@@ -25,9 +23,7 @@ class SelectTest < Minitest::Test
   def test_pick_words_with_three_letters
     words = ["pill", "bad", "finger", "cat", "blue", "dog", "table", "red"]
     selected = words.select do |word|
-      if word.length == 3
-        return word
-      end
+      word.length == 3
     end
     assert_equal ["bad", "cat", "dog", "red"], selected
   end
@@ -35,9 +31,7 @@ class SelectTest < Minitest::Test
   def test_pick_words_with_more_than_three_letters
     words = ["pill", "bad", "finger", "cat", "blue", "dog", "table", "red"]
     selected = words.select do |word|
-      if word.length > 3
-        return word
-      end
+      word.length > 3
     end
     assert_equal ["pill", "finger", "blue", "table"], selected
   end
@@ -45,9 +39,7 @@ class SelectTest < Minitest::Test
   def test_pick_words_ending_in_e
     words = ["are", "you", "strike", "thinking", "belt", "piece", "warble", "sing", "pipe"]
     selected = words.select do |word|
-      if word[-1] == "e"
-        return word
-      end
+      word[-1] == "e"
     end
     assert_equal ["are", "strike", "piece", "warble", "pipe"], selected
   end
@@ -55,9 +47,7 @@ class SelectTest < Minitest::Test
   def test_pick_words_ending_in_ing
     words = ["bring", "finger", "drought", "singing", "bingo", "purposeful"]
     selected = words.select do |word|
-      if word[-3..-1] == "ing"
-        return word
-      end
+      word[-3..-1] == "ing"
     end
     assert_equal ["bring", "singing"], selected
   end
@@ -65,9 +55,7 @@ class SelectTest < Minitest::Test
   def test_pick_words_containing_e
     words = ["four", "red", "five", "blue", "pizza", "purple"]
     selected = words.select do |word|
-      if word.include?("e") == true
-        return word
-      end
+      word.include?("e") == true
     end
     assert_equal ["red", "five", "blue", "purple"], selected
   end
@@ -75,9 +63,7 @@ class SelectTest < Minitest::Test
   def test_pick_dinosaurs
     animals = ["tyrannosaurus", "narwhal", "eel", "achillesaurus", "qingxiusaurus"]
     dinosaurs = animals.select do |animal|
-      if animal[-6..-1] == "saurus"
-        return animal
-      end
+      animal[-6..-1] == "saurus"
     end
     assert_equal ["tyrannosaurus", "achillesaurus", "qingxiusaurus"], dinosaurs
   end
@@ -85,9 +71,7 @@ class SelectTest < Minitest::Test
   def test_pick_floats
     numbers = [3, 1.4, 3.5, 2, 4.9, 9.1, 8.0]
     floats = numbers.select do |number|
-      if number.to_s.length > 1
-        return number
-      end
+      number.to_s.length > 1
     end
     assert_equal [1.4, 3.5, 4.9, 9.1, 8.0], floats
   end
@@ -95,9 +79,7 @@ class SelectTest < Minitest::Test
   def test_pick_arrays
     elements = ["CAT", ["dog"], 23, [56, 3, 8], "AIMLESS", 43, "butter"]
     arrays = elements.select do |element|
-      if element.is_a?(Array) == true
-        return element
-      end
+      element.is_a?(Array) == true
     end
     assert_equal [["dog"], [56, 3, 8]], arrays
   end
@@ -105,9 +87,7 @@ class SelectTest < Minitest::Test
   def test_pick_hashes
     elements = ["cat", {:dog=>"fido"}, 23, {:stuff=>"things"}, "aimless", 43]
     hashes = elements.select do |element|
-      if element.is_a?(Hash) == true
-        return element
-      end
+      element.is_a?(Hash) == true
     end
     assert_equal [{:dog=>"fido"}, {:stuff=>"things"}], hashes
   end
